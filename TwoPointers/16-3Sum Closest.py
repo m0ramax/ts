@@ -17,7 +17,6 @@
 
 def threeSumClosest(nums: list[int], target: int) -> int:
     nums.sort()
-    print(nums)
     closest = float('inf')
     
     for i in range(len(nums)-2):
@@ -28,13 +27,11 @@ def threeSumClosest(nums: list[int], target: int) -> int:
         
         while l < r:
             total = nums[i]+nums[l]+nums[r]
-            a=abs(closest-target)
-            b=abs(total-target)
-
+          
             if total == target:
                 return total
             
-            if b < a:
+            if abs(total-target) < abs(closest-target):
                 closest = total
             
             if total < target:
@@ -45,5 +42,5 @@ def threeSumClosest(nums: list[int], target: int) -> int:
 
 print(threeSumClosest([-1,2,1,-4],1)) #2
 print(threeSumClosest([0,0,0],1)) # 0
-# print(threeSumClosest([4,0,5,-5,3,3,0,-4,-5],-2)) #-2
-# print(threeSumClosest([1,1,1,0],-100)) # 2
+print(threeSumClosest([4,0,5,-5,3,3,0,-4,-5],-2)) #-2
+print(threeSumClosest([1,1,1,0],-100)) # 2
