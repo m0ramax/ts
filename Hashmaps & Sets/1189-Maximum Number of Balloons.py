@@ -23,6 +23,19 @@
 
 from collections import Counter
 def maxNumberOfBalloons(text: str) -> int:
+    hashMap = {}
+    balloon ={}
+    example = 'balloon'
+
+    for n in text:
+        hashMap[n] = 1+hashMap.get(n,0)
+    for x in example:
+        balloon[x] = 1 + balloon.get(n,0)
+
+    res = len(text)
+    for c in balloon:
+        res = min(res, hashMap[c]// balloon[c] if c in hashMap else 0)
+    return res
     # 25ms
     countText = Counter(text)
     balloon = Counter('balloon')
